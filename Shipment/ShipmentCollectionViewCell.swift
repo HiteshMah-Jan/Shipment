@@ -24,5 +24,10 @@ class ShipmentCollectionViewCell: UICollectionViewCell, NibLoadableView {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func config(selectType: SelectType) {
+        self.titleLabel.text = selectType.title
+        self.subtitleLabel.text = selectType.option
+    }
 
 }

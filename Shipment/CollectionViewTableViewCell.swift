@@ -10,10 +10,11 @@ import UIKit
 
 protocol CollectionViewSelectedProtocol {
     func collectionViewSelected(collectionViewItem : Int)
+    func selectedTypeForRow(tableRow: Int, collectionViewPath: IndexPath)
 }
 
 class CollectionViewTableViewCell: UITableViewCell, ShipmentDelegate {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     
@@ -33,12 +34,14 @@ class CollectionViewTableViewCell: UITableViewCell, ShipmentDelegate {
         }
     }
     
+    var tRow = 0
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func configCell() {
-        pageControl.numberOfPages = 3
+    func configCell(type: [SelectType]) {
+        pageControl.numberOfPages = type.count
     }
     
     func initializeCollectionViewWithDataSource<D: UICollectionViewDataSource,E: UICollectionViewDelegate>(dataSource: D, delegate :E, forRow row: Int) {
@@ -70,14 +73,30 @@ class CollectionViewTableViewCell: UITableViewCell, ShipmentDelegate {
     func didScroll(scrollView: UIScrollView) {
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
         pageControl.currentPage = Int(pageNumber)
+        detection()
+    }
+    
+    func detection() {
+        if let indexPath:IndexPath = collectionView?.indexPathsForVisibleItems[0] {
+            switch tRow {
+            case 0:
+                saveType(value: StoredType(tableRow: tRow, collectionRow: indexPath.row), key: opt0)
+                self.delegate.selectedTypeForRow(tableRow: tRow, collectionViewPath: indexPath)
+            case 1:
+                saveType(value: StoredType(tableRow: tRow, collectionRow: indexPath.row), key: opt1)
+                self.delegate.selectedTypeForRow(tableRow: tRow, collectionViewPath: indexPath)
+            default:
+                break
+            }
+        }
     }
     
     @IBAction func leftButton(_ sender: UIButton) {
         var currentPage = pageControl.currentPage - 1
-        
         if currentPage < 0 {
-            currentPage = pageControl.numberOfPages-1
-            self.collectionView.scrollRectToVisible(CGRect(x: Int(self.frame.width*CGFloat(currentPage)), y: 0, width: Int(self.frame.width), height: Int(self.bounds.height)), animated: false)
+            return
+//            currentPage = pageControl.numberOfPages-1
+//            self.collectionView.scrollRectToVisible(CGRect(x: Int(self.frame.width*CGFloat(currentPage)), y: 0, width: Int(self.frame.width), height: Int(self.bounds.height)), animated: false)
         }else{
             self.collectionView.scrollToItem(at: IndexPath(item: currentPage, section: 0), at: UICollectionViewScrollPosition.centeredHorizontally, animated: true)
         }
@@ -88,15 +107,12 @@ class CollectionViewTableViewCell: UITableViewCell, ShipmentDelegate {
         var currentPage = pageControl.currentPage + 1
         
         if currentPage >= pageControl.numberOfPages {
-            currentPage = 0
-            self.collectionView.scrollRectToVisible(CGRect(x: Int(self.frame.width*CGFloat(currentPage)), y: 0, width: Int(self.frame.width), height: Int(self.bounds.height)), animated: false)
+            return
+//            currentPage = 0
+//            self.collectionView.scrollRectToVisible(CGRect(x: Int(self.frame.width*CGFloat(currentPage)), y: 0, width: Int(self.frame.width), height: Int(self.bounds.height)), animated: false)
         }else{
             self.collectionView.scrollToItem(at: IndexPath(item: currentPage, section: 0), at: UICollectionViewScrollPosition.centeredHorizontally, animated: true)
         }
         pageControl.currentPage = currentPage
     }
-}
-
-extension CollectionViewTableViewCell {
-    
 }

@@ -15,15 +15,36 @@ class ShipmentTableVC: UITableViewController {
     @IBOutlet weak var headerTitleLabel: UILabel!
     @IBOutlet weak var headerDescriptionLabel: InsetLabel!
     
+    let selectTypes:[[SelectType]]! = [[SelectType(title:"Sowgatlary näme edeliň?", option: "Sowgatlary siz gowşuryň"), SelectType(title: "Sowgatlary näme edeliň?", option:"Meň salgyma getirip beriň")], [SelectType(title:"Tölegini nähili geçirýärsiňiz?", option: "Nagt hasaplaşyk"), SelectType(title: "Tölegini nähili geçirýärsiňiz?", option:"Online töleg (Visa, Mastercard)")]]
+    
+    var headerTextForSelectedType: [SelectType]! = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.estimatedRowHeight = 44
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        
+        headerTextForSelectedType.append(SelectType(title: "Nagt tölemek, sowgat ibermek", option:"Biziň kurýerimiz sowgatlar üçin tölegleri sizden alýar we sowgat ibermek isleýän adamyňyza biz sowgatlary eltip berýäris."))
+        headerTextForSelectedType.append(SelectType(title: "Online tölemek, sowgat ibermek", option:"Harytlar üçin Visa, Mastercard arkaly töleg geçirýärsiňiz. Sowgatlary kime ibermek isleseňiz, şol salga eltip berýäris."))
+        headerTextForSelectedType.append(SelectType(title: "Nagt tölemek, satyn almak", option:"Harytlary size gowşurýarys, harytlary alanyňyzdan soňra nagt hasaplaşyk geçýärsiňiz. Sowgatlar size eltilýär."))
+        headerTextForSelectedType.append(SelectType(title: "Online tölemek, satyn almak", option:"Harytlar üçin Visa, Mastercard arkaly töleg geçirýärsiňiz. Sowgatlar size eltilýär."))
+        
+        //If stored value is nil then set default values and store
+        //if loadStoreType(key: opt0) == nil {
+            saveType(value: StoredType(tableRow: 0, collectionRow: 0), key: opt0)
+        //}
+        //if loadStoreType(key: opt1) == nil {
+            saveType(value: StoredType(tableRow: 1, collectionRow: 0), key: opt1)
+        //}
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        print(loadStoreType(key: opt0))
+        print(loadStoreType(key: opt1))
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,7 +77,9 @@ class ShipmentTableVC: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionViewTableViewCell", for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
-        
+        cell.configCell(type: self.selectTypes[indexPath.row])
+        cell.tRow = indexPath.row
+        cell.delegate = self
         return cell
     }
     
@@ -70,7 +93,7 @@ class ShipmentTableVC: UITableViewController {
         collectionViewCell.delegate = self
         
         let dataProvider = ShipmentCollectionViewDataSource()
-        //dataProvider.imageURLS = brands[indexPath.row].sliders
+        dataProvider.selectType = self.selectTypes[indexPath.row]
         
         let delegate = ShipmentCollectionViewDataSource()
         
@@ -133,5 +156,58 @@ class ShipmentTableVC: UITableViewController {
 extension ShipmentTableVC: CollectionViewSelectedProtocol {
     func collectionViewSelected(collectionViewItem: Int) {
         
+    }
+//    0 0 0 - 0
+//    0 1 0 - 2
+//    0 0 1 - 1
+//    0 1 1 - 3
+//    
+//    1 0 0 - 0
+//    1 1 0 - 1
+//    1 0 1 - 2
+//    1 1 1 - 3
+    func selectedTypeForRow(tableRow: Int, collectionViewPath: IndexPath) {
+        print("tableViewRow: \(tableRow) collectionViewPath: \(collectionViewPath)")
+        
+        if tableRow == 0 {
+            let loadOpt1 = loadStoreType(key: opt1)
+            if collectionViewPath.row == 0 && loadOpt1?.collectionRow == 0 {
+                headerTitleLabel.text = headerTextForSelectedType[0].title
+                headerDescriptionLabel.text = headerTextForSelectedType[0].option
+            }
+            if collectionViewPath.row == 1 && loadOpt1?.collectionRow == 0 {
+                headerTitleLabel.text = headerTextForSelectedType[2].title
+                headerDescriptionLabel.text = headerTextForSelectedType[2].option
+            }
+            if collectionViewPath.row == 0 && loadOpt1?.collectionRow == 1 {
+                headerTitleLabel.text = headerTextForSelectedType[1].title
+                headerDescriptionLabel.text = headerTextForSelectedType[1].option
+            }
+            if collectionViewPath.row == 1 && loadOpt1?.collectionRow == 1 {
+                headerTitleLabel.text = headerTextForSelectedType[3].title
+                headerDescriptionLabel.text = headerTextForSelectedType[3].option
+            }
+        }
+        
+        if tableRow == 1 {
+            let loadOpt0 = loadStoreType(key: opt0)
+            if collectionViewPath.row == 0 && loadOpt0?.collectionRow == 0 {
+                headerTitleLabel.text = headerTextForSelectedType[0].title
+                headerDescriptionLabel.text = headerTextForSelectedType[0].option
+            }
+            if collectionViewPath.row == 1 && loadOpt0?.collectionRow == 0 {
+                headerTitleLabel.text = headerTextForSelectedType[1].title
+                headerDescriptionLabel.text = headerTextForSelectedType[1].option
+            }
+            if collectionViewPath.row == 0 && loadOpt0?.collectionRow == 1 {
+                headerTitleLabel.text = headerTextForSelectedType[2].title
+                headerDescriptionLabel.text = headerTextForSelectedType[2].option
+            }
+            if collectionViewPath.row == 1 && loadOpt0?.collectionRow == 1 {
+                headerTitleLabel.text = headerTextForSelectedType[3].title
+                headerDescriptionLabel.text = headerTextForSelectedType[3].option
+            }
+        }
+        tableView.layoutIfNeeded()
     }
 }

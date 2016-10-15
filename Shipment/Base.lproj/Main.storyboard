@@ -106,7 +106,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="Yu3-RN-WXw" secondAttribute="bottom" id="3B8-Qi-JzE"/>
-                                        <constraint firstAttribute="bottom" secondItem="ie6-P1-Ghc" secondAttribute="bottom" constant="3" id="8iD-o8-Xiy"/>
+                                        <constraint firstAttribute="bottom" secondItem="ie6-P1-Ghc" secondAttribute="bottom" id="8iD-o8-Xiy"/>
                                         <constraint firstItem="Yu3-RN-WXw" firstAttribute="top" secondItem="jVV-ys-IRc" secondAttribute="top" id="AmA-sj-7LM"/>
                                         <constraint firstItem="E22-qQ-mL3" firstAttribute="leading" secondItem="jVV-ys-IRc" secondAttribute="leading" id="M0j-pm-qpB"/>
                                         <constraint firstAttribute="trailing" secondItem="E22-qQ-mL3" secondAttribute="trailing" id="OZD-PV-pYt"/>
