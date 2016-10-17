@@ -4,7 +4,7 @@
 
 ## Author
 
-Oraz Atakishi, info@orazz.com
+Oraz Atakishi, orazz.tm@gmail.com
 
 ## License
 
