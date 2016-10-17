@@ -1,3 +1,3 @@
 # Shipment
 
-![Shipment](1.png)
+<img src="2.png" width="500">
