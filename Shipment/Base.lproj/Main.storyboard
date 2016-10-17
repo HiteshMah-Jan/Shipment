@@ -33,7 +33,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.99215686274509807" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="Ny1-j0-INX" firstAttribute="leading" secondItem="Jfa-mx-OFU" secondAttribute="leading" constant="8" id="3uT-d5-cEY"/>
                                 <constraint firstAttribute="trailing" secondItem="aas-ux-8eL" secondAttribute="trailing" constant="18" id="8ch-w6-yvN"/>
@@ -52,7 +52,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yu3-RN-WXw">
-                                            <color key="backgroundColor" red="0.99049018249999998" green="0.99049018249999998" blue="0.99049018249999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.99215686274509807" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="rdy-OV-Pol" customClass="ShipmentLayout" customModule="Shipment" customModuleProvider="target">
                                                 <size key="itemSize" width="50" height="50"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -151,26 +151,28 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uX6-Cd-Fdc">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="5" id="gMo-0P-4pm"/>
-                                            </constraints>
-                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ixo-dY-Wp4">
+                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="5" id="pvw-I0-3PA"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uX6-Cd-Fdc">
+                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="5" id="gMo-0P-4pm"/>
                                             </constraints>
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" red="0.99049018249999998" green="0.99049018249999998" blue="0.99049018249999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="59S-WK-7We" firstAttribute="top" secondItem="WiA-8L-85u" secondAttribute="bottom" constant="7" id="4ru-ce-GgP"/>
-                                        <constraint firstItem="Ixo-dY-Wp4" firstAttribute="centerX" secondItem="ieN-kg-A4S" secondAttribute="centerX" constant="-3" id="6Va-C9-gnb"/>
+                                        <constraint firstItem="Ixo-dY-Wp4" firstAttribute="centerX" secondItem="ieN-kg-A4S" secondAttribute="centerX" id="6Va-C9-gnb"/>
                                         <constraint firstItem="ieN-kg-A4S" firstAttribute="top" secondItem="Ixo-dY-Wp4" secondAttribute="bottom" constant="5" id="8Mk-os-438"/>
                                         <constraint firstItem="ieN-kg-A4S" firstAttribute="leading" secondItem="Rm0-hf-qtT" secondAttribute="leadingMargin" constant="6" id="EVc-2e-SQG"/>
                                         <constraint firstAttribute="bottom" secondItem="uX6-Cd-Fdc" secondAttribute="bottom" id="Fry-Jz-IXm"/>
                                         <constraint firstItem="59S-WK-7We" firstAttribute="leading" secondItem="Rm0-hf-qtT" secondAttribute="leadingMargin" constant="46" id="L6G-O9-Mzn"/>
-                                        <constraint firstItem="uX6-Cd-Fdc" firstAttribute="centerX" secondItem="ieN-kg-A4S" secondAttribute="centerX" constant="-3" id="R7H-zJ-nzz"/>
+                                        <constraint firstItem="uX6-Cd-Fdc" firstAttribute="centerX" secondItem="ieN-kg-A4S" secondAttribute="centerX" id="R7H-zJ-nzz"/>
                                         <constraint firstItem="uX6-Cd-Fdc" firstAttribute="top" secondItem="ieN-kg-A4S" secondAttribute="bottom" constant="7" id="VrK-AZ-YbM"/>
                                         <constraint firstItem="Ixo-dY-Wp4" firstAttribute="top" secondItem="Rm0-hf-qtT" secondAttribute="top" id="aAj-Kf-I6v"/>
                                         <constraint firstItem="ieN-kg-A4S" firstAttribute="top" secondItem="Rm0-hf-qtT" secondAttribute="topMargin" constant="12" id="d7T-Va-Fco"/>

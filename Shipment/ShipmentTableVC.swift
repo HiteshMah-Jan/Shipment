@@ -19,6 +19,13 @@ class ShipmentTableVC: UITableViewController {
     
     var headerTextForSelectedType: [SelectType]! = []
     
+    lazy var gitPopLauncher:PopLauncher = {
+        
+        let launcher = PopLauncher()
+        return launcher
+        
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.estimatedRowHeight = 44
@@ -36,20 +43,15 @@ class ShipmentTableVC: UITableViewController {
         //if loadStoreType(key: opt1) == nil {
             saveType(value: StoredType(tableRow: 1, collectionRow: 0), key: opt1)
         //}
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        print(loadStoreType(key: opt0))
-        print(loadStoreType(key: opt1))
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+         gitPopLauncher.showPopUp(roundedViewBackgroundColor: UIColor.white, checkBtnTitle: "INDIKI", checkBtnBackColor: UIColor.black, durationOnScreen: 4.5, currentView: self.view, isAboveTabBar: false, vc: self)
+    }
+    
+    func checkout() {
+        print()
     }
 
     // MARK: - Table view data source
@@ -106,51 +108,6 @@ class ShipmentTableVC: UITableViewController {
         guard let collectionViewCell = cell as? CollectionViewTableViewCell else { return }
         storedOffsets[indexPath.row] = collectionViewCell.collectionViewOffset
     }
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension ShipmentTableVC: CollectionViewSelectedProtocol {

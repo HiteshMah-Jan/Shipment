@@ -16,11 +16,17 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="swipe to select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKv-dO-AXE">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="Rzv-he-zPA"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                        <color key="textColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNs-K9-xc4">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="29" id="Qw6-xd-G97"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -28,11 +34,11 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="FNs-K9-xc4" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="XuY-77-4ld"/>
-                <constraint firstItem="FNs-K9-xc4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="14" id="eAh-U7-70t"/>
-                <constraint firstItem="JKv-dO-AXE" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="6" id="fga-fx-bIf"/>
-                <constraint firstItem="JKv-dO-AXE" firstAttribute="top" secondItem="FNs-K9-xc4" secondAttribute="bottom" constant="5" id="uHi-T3-2ZG"/>
-                <constraint firstItem="JKv-dO-AXE" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="ykq-mi-yAD"/>
+                <constraint firstItem="FNs-K9-xc4" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" constant="1" id="XuY-77-4ld"/>
+                <constraint firstItem="FNs-K9-xc4" firstAttribute="top" relation="lessThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="eAh-U7-70t"/>
+                <constraint firstItem="JKv-dO-AXE" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="0.5" id="fga-fx-bIf"/>
+                <constraint firstItem="JKv-dO-AXE" firstAttribute="top" secondItem="FNs-K9-xc4" secondAttribute="bottom" constant="-2" id="uHi-T3-2ZG"/>
+                <constraint firstItem="JKv-dO-AXE" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" constant="1" id="ykq-mi-yAD"/>
             </constraints>
             <size key="customSize" width="375" height="90"/>
             <connections>
