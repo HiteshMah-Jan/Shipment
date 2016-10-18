@@ -19,12 +19,13 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="168"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nagt tölemek, sowgat ibermek" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ny1-j0-INX">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ship" translatesAutoresizingMaskIntoConstraints="NO" id="nlf-jt-kp8"/>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nagt tölemek, sowgat ibermek" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ny1-j0-INX">
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Biziň kurýerimiz sowgatlar üçin tölegleri sizden alýar we sowgat ibermek isleýän adamyňyza biz sowgatlary eltip berýäris. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aas-ux-8eL" customClass="InsetLabel" customModule="Shipment" customModuleProvider="target">
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Biziň kurýerimiz sowgatlar üçin tölegleri sizden alýar we sowgat ibermek isleýän adamyňyza biz sowgatlary eltip berýäris. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aas-ux-8eL" customClass="InsetLabel" customModule="Shipment" customModuleProvider="target">
                                     <constraints>
                                         <constraint firstAttribute="height" constant="101" id="2q0-7h-0EZ"/>
                                     </constraints>
@@ -35,11 +36,15 @@
                             </subviews>
                             <color key="backgroundColor" red="0.99215686274509807" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
+                                <constraint firstAttribute="bottom" secondItem="nlf-jt-kp8" secondAttribute="bottom" id="0By-1G-hfq"/>
                                 <constraint firstItem="Ny1-j0-INX" firstAttribute="leading" secondItem="Jfa-mx-OFU" secondAttribute="leading" constant="8" id="3uT-d5-cEY"/>
                                 <constraint firstAttribute="trailing" secondItem="aas-ux-8eL" secondAttribute="trailing" constant="18" id="8ch-w6-yvN"/>
+                                <constraint firstItem="nlf-jt-kp8" firstAttribute="top" secondItem="Jfa-mx-OFU" secondAttribute="top" id="JlY-g7-7rY"/>
+                                <constraint firstItem="nlf-jt-kp8" firstAttribute="leading" secondItem="Jfa-mx-OFU" secondAttribute="leading" id="Zvr-Ss-e2a"/>
                                 <constraint firstItem="aas-ux-8eL" firstAttribute="top" secondItem="Ny1-j0-INX" secondAttribute="bottom" constant="3" id="gIL-I5-k40"/>
                                 <constraint firstAttribute="trailing" secondItem="Ny1-j0-INX" secondAttribute="trailing" constant="8" id="kPy-aN-fwn"/>
                                 <constraint firstItem="aas-ux-8eL" firstAttribute="bottom" secondItem="Jfa-mx-OFU" secondAttribute="bottomMargin" id="mh5-gv-Q1g"/>
+                                <constraint firstItem="nlf-jt-kp8" firstAttribute="centerX" secondItem="aas-ux-8eL" secondAttribute="centerX" id="pvu-uc-MPq"/>
                                 <constraint firstItem="aas-ux-8eL" firstAttribute="leading" secondItem="Jfa-mx-OFU" secondAttribute="leading" constant="17" id="rm7-LP-PAd"/>
                             </constraints>
                         </view>
@@ -187,6 +192,7 @@
                                     <outlet property="dashedTop" destination="Ixo-dY-Wp4" id="wv0-Bk-mcY"/>
                                     <outlet property="dashedView" destination="uX6-Cd-Fdc" id="htM-za-mU9"/>
                                     <outlet property="roundedView" destination="ieN-kg-A4S" id="wdL-ut-nEy"/>
+                                    <outlet property="titleLabel" destination="WiA-8L-85u" id="QJg-Ry-wfD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -208,5 +214,6 @@
     <resources>
         <image name="ic_left" width="63" height="117"/>
         <image name="ic_right" width="63" height="117"/>
+        <image name="ship" width="306" height="346"/>
     </resources>
 </document>

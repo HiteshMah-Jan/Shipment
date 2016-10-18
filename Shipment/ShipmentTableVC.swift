@@ -15,8 +15,8 @@ class ShipmentTableVC: UITableViewController {
     @IBOutlet weak var headerTitleLabel: UILabel!
     @IBOutlet weak var headerDescriptionLabel: InsetLabel!
     
-    let selectTypes:[[SelectType]]! = [[SelectType(title:"Sowgatlary näme edeliň?", option: "Sowgatlary siz gowşuryň"), SelectType(title: "Sowgatlary näme edeliň?", option:"Meň salgyma getirip beriň")], [SelectType(title:"Tölegini nähili geçirýärsiňiz?", option: "Nagt hasaplaşyk"), SelectType(title: "Tölegini nähili geçirýärsiňiz?", option:"Online töleg (Visa, Mastercard)")]]
-    
+    let selectTypes:[[SelectType]]! = [[SelectType(title:"Size", option: "swipe to select"), SelectType(title: "Small Box", option:"5x7"), SelectType(title: "Large Box", option:"10x12")], [SelectType(title:"Shipping Option", option: "swipe to select"), SelectType(title:"Standart", option: "Slowly but safe"), SelectType(title: "Express", option:"Faster than bycicle"), SelectType(title: "Over night", option:"Get it here, tomorrow")]]
+    let titles = ["","","From", "To"]
     var headerTextForSelectedType: [SelectType]! = []
     
     lazy var gitPopLauncher:PopLauncher = {
@@ -47,7 +47,7 @@ class ShipmentTableVC: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-         gitPopLauncher.showPopUp(roundedViewBackgroundColor: UIColor.white, checkBtnTitle: "INDIKI", checkBtnBackColor: UIColor.black, durationOnScreen: 4.5, currentView: self.view, isAboveTabBar: false, vc: self)
+         gitPopLauncher.showPopUp(roundedViewBackgroundColor: UIColor.white, checkBtnTitle: "Checkout", checkBtnBackColor: UIColor.black, durationOnScreen: 4.5, currentView: self.view, isAboveTabBar: false, vc: self)
     }
     
     func checkout() {
@@ -73,6 +73,7 @@ class ShipmentTableVC: UITableViewController {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddressTableViewCell", for: indexPath) as? AddressTableViewCell else {
                 fatalError()
             }
+            cell.titleLabel.text = titles[indexPath.row]
             return cell
         }
         

@@ -92,7 +92,7 @@ class CollectionViewTableViewCell: UITableViewCell, ShipmentDelegate {
     }
     
     @IBAction func leftButton(_ sender: UIButton) {
-        var currentPage = pageControl.currentPage - 1
+        let currentPage = pageControl.currentPage - 1
         if currentPage < 0 {
             return
 //            currentPage = pageControl.numberOfPages-1
@@ -104,7 +104,7 @@ class CollectionViewTableViewCell: UITableViewCell, ShipmentDelegate {
     }
     
     @IBAction func rightButton(_ sender: UIButton) {
-        var currentPage = pageControl.currentPage + 1
+        let currentPage = pageControl.currentPage + 1
         
         if currentPage >= pageControl.numberOfPages {
             return

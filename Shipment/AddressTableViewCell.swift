@@ -13,6 +13,7 @@ class AddressTableViewCell: UITableViewCell {
     @IBOutlet weak var roundedView: UIView!
     @IBOutlet weak var dashedView: UIView!
     @IBOutlet weak var dashedTop: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
